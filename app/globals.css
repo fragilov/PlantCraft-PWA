@@ -1,0 +1,238 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* PlantCraft Theme - Cottagecore Minimal × Minecraft Pixel */
+:root {
+  /* Core Colors */
+  --background: #F5F0E8; /* Cream - warm, natural feel */
+  --foreground: #2D2D2D; /* Dark charcoal for text */
+  --card: #FFFFFF;
+  --card-foreground: #2D2D2D;
+  --popover: #FFFFFF;
+  --popover-foreground: #2D2D2D;
+  
+  /* Primary: Forest Green */
+  --primary: #5C8A3C;
+  --primary-foreground: #FFFFFF;
+  
+  /* Secondary: Soft cream */
+  --secondary: #EDE8DD;
+  --secondary-foreground: #2D2D2D;
+  
+  /* Muted */
+  --muted: #E8E3D9;
+  --muted-foreground: #6B6B6B;
+  
+  /* Accent: Pixel Yellow */
+  --accent: #E8C547;
+  --accent-foreground: #2D2D2D;
+  
+  /* Status Colors */
+  --destructive: #E74C3C;
+  --destructive-foreground: #FFFFFF;
+  --success: #4CAF50;
+  --warning: #FFC107;
+  
+  /* UI Elements */
+  --border: #D4CFC4;
+  --input: #EDE8DD;
+  --ring: #5C8A3C;
+  
+  /* HP Bar Colors */
+  --hp-high: #4CAF50;
+  --hp-medium: #FFC107;
+  --hp-low: #F44336;
+  
+  /* Chart Colors */
+  --chart-1: #5C8A3C;
+  --chart-2: #E8C547;
+  --chart-3: #8B7355;
+  --chart-4: #6B8E4E;
+  --chart-5: #D4A84B;
+  
+  /* Minecraft-style square corners */
+  --radius: 4px;
+  
+  /* Sidebar */
+  --sidebar: #EDE8DD;
+  --sidebar-foreground: #2D2D2D;
+  --sidebar-primary: #5C8A3C;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E8C547;
+  --sidebar-accent-foreground: #2D2D2D;
+  --sidebar-border: #D4CFC4;
+  --sidebar-ring: #5C8A3C;
+}
+
+.dark {
+  --background: #1A1A1A;
+  --foreground: #F5F0E8;
+  --card: #242424;
+  --card-foreground: #F5F0E8;
+  --popover: #242424;
+  --popover-foreground: #F5F0E8;
+  --primary: #6B9B4B;
+  --primary-foreground: #FFFFFF;
+  --secondary: #2D2D2D;
+  --secondary-foreground: #F5F0E8;
+  --muted: #333333;
+  --muted-foreground: #A0A0A0;
+  --accent: #E8C547;
+  --accent-foreground: #1A1A1A;
+  --destructive: #E74C3C;
+  --destructive-foreground: #FFFFFF;
+  --border: #3D3D3D;
+  --input: #2D2D2D;
+  --ring: #6B9B4B;
+  --chart-1: #6B9B4B;
+  --chart-2: #E8C547;
+  --chart-3: #A08060;
+  --chart-4: #7BA05E;
+  --chart-5: #D4A84B;
+  --sidebar: #242424;
+  --sidebar-foreground: #F5F0E8;
+  --sidebar-primary: #6B9B4B;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #E8C547;
+  --sidebar-accent-foreground: #1A1A1A;
+  --sidebar-border: #3D3D3D;
+  --sidebar-ring: #6B9B4B;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', sans-serif;
+  --font-mono: 'Press Start 2P', 'Courier New', monospace;
+  --font-pixel: 'Press Start 2P', 'Courier New', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Pixel Font Class */
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* HP Bar Animations */
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-red {
+  animation: pulse-red 1s ease-in-out infinite;
+}
+
+/* Bottom Sheet Animations */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+/* Pixel Border Style */
+.pixel-border {
+  border: 2px solid var(--primary);
+  image-rendering: pixelated;
+}
+
+/* Reward Toast Animation */
+@keyframes reward-toast-fly {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0) scale(1.05);
+  }
+  25% {
+    transform: translateY(0) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+}
+
+.animate-reward-toast {
+  animation: reward-toast-fly 2.5s ease-out forwards;
+}
+
+/* Hide scrollbar for carousels */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Camera viewfinder */
+.ar-scanning-line {
+  animation: scan-line 2s ease-in-out infinite;
+}
+
+@keyframes scan-line {
+  0%, 100% { top: 20%; }
+  50% { top: 80%; }
+}
